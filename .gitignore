@@ -1,8 +1,8 @@
 HELP.md
 target/
-mvn
-!**/src/main/**/target/
-!**/src/test/**/target/
+/.mvn/**
+**/src/main/**/target/
+**/src/test/**/target/
 
 ### STS ###
 .apt_generated
@@ -14,7 +14,7 @@ mvn
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+/.idea
 *.iws
 *.iml
 *.ipr
