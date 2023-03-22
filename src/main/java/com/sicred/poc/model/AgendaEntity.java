@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode
-public class Agenda {
+public class AgendaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
