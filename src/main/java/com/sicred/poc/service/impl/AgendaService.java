@@ -8,21 +8,21 @@ import com.sicred.poc.model.AgendaEntity;
 import com.sicred.poc.repository.AgendaRepository;
 import com.sicred.poc.service.IAgendaService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 @Slf4j
 public class AgendaService implements IAgendaService {
 
+    @Autowired
     private AgendaRepository repository;
-
+    @Autowired
     private AgendaMapper mapper;
 
     @SneakyThrows
