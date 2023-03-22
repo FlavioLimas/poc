@@ -4,7 +4,7 @@ import lombok.Getter;
 
 public enum PocSicredErrors {
 
-    ORIGIN_NOT_SAVED("Origin not saved on database");
+    AGENDA_NOT_FOUND("Agenda Not Found");
 
     @Getter
     private String message;
