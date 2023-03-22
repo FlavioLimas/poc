@@ -25,7 +25,7 @@ public class AgendaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String titleAgenda;
-    private String descriptionAgenda;
+    private String title;
+    private String description;
 
 }
