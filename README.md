@@ -22,3 +22,7 @@ Os guias a seguir ilustram como usar alguns recursos de forma concreta:
 * [Building a Reactive RESTful Web Service](https://spring.io/guides/gs/reactive-rest-service/)
 * [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
 
+### Especificações Técnicas
+* [Health Check](http://localhost:8080/poc/v1/actuator)
+* [Health Check Custom](http://localhost:8080/poc/v1/actuator/health/custom)
+* 
