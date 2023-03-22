@@ -16,12 +16,6 @@ Para referência adicional, considere as seguintes seções:
 * [Quick Guide to Hibernate enable_lazy_load_no_trans Property](https://www.baeldung.com/hibernate-lazy-loading-workaround)
 * [Where Does H2’s Embedded Database Store The Data?](https://www.baeldung.com/h2-embedded-db-data-storage)
 
-### Guias
-Os guias a seguir ilustram como usar alguns recursos de forma concreta:
-
-* [Building a Reactive RESTful Web Service](https://spring.io/guides/gs/reactive-rest-service/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-
 ### Especificações Técnicas
 * [Health Check](http://localhost:8080/poc/v1/actuator)
 * [Health Check Custom](http://localhost:8080/poc/v1/actuator/health/custom)
