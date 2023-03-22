@@ -26,10 +26,31 @@ public class AgendaService implements IAgendaService {
     private AgendaMapper mapper;
 
     @SneakyThrows
+    @Override
     public List<AgendaDTO> getAll() {
         List<AgendaEntity> agendas = repository.findAll();
         if (agendas.isEmpty())
             throw new PocSicredException(PocSicredErrors.AGENDA_NOT_FOUND);
         return mapper.from(agendas);
+    }
+
+    @Override
+    public AgendaDTO findByName(String title) {
+        return null;
+    }
+
+    @Override
+    public AgendaDTO save(AgendaDTO agendaDTO) {
+        return null;
+    }
+
+    @Override
+    public AgendaDTO update(AgendaDTO agendaDTO) {
+        return null;
+    }
+
+    @Override
+    public void delete(AgendaDTO agendaDTO) {
+
     }
 }

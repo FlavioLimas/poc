@@ -9,11 +9,11 @@ public interface IAgendaService {
 
     List<AgendaDTO> getAll();
 
-    Optional<AgendaDTO> findByName(String title);
+    AgendaDTO findByName(String title);
 
-    Optional<AgendaDTO> save(AgendaDTO agendaDTO);
+    AgendaDTO save(AgendaDTO agendaDTO);
 
-    Optional<AgendaDTO> update(AgendaDTO agendaDTO);
+    AgendaDTO update(AgendaDTO agendaDTO);
 
     void delete(AgendaDTO agendaDTO);
 
