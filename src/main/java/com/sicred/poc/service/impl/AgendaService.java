@@ -29,8 +29,10 @@ public class AgendaService implements IAgendaService {
     @Override
     public List<AgendaDTO> getAll() {
         List<AgendaEntity> agendas = repository.findAll();
-        if (agendas.isEmpty())
+        if (agendas.isEmpty()) {
+            log.error("Agenda " + agendas);
             throw new PocSicredException(PocSicredErrors.AGENDA_NOT_FOUND);
+        }
         return mapper.from(agendas);
     }
 
