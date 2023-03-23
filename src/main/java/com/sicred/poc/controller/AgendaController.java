@@ -60,9 +60,7 @@ public class AgendaController {
     }
 
     @Operation(summary = "Inclusão de Pauta",
-            description = "Criação de registro será realizada sómente se o titulo em questão não" +
-                    "estiver cadastrado na base e o campo ID deve ser enviado NULL, caso já exista" +
-                    "cadastro será recuperado valor cadastrado",
+            description = "Criação de Pauta",
             tags = {"Criação de registro"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation",
@@ -78,10 +76,7 @@ public class AgendaController {
     }
 
     @Operation(summary = "Atualizão de Pauta",
-            description = "Para ser efetuada a atualização da pauta é realizado " +
-                    "a pesquisa pelo titulo, sendo assim, é obrigatório a existencia " +
-                    "do ID do titulo informado, caso não saiba favor efetuar uma pesquisa nos " +
-                    "Listagem de Pautas ou Pesquisa por titulo de Pauta",
+            description = "Atualizão de Pauta",
             tags = {"Atualização"})
     @ApiResponse(responseCode = "200", description = "Update Operation")
     @ApiResponses(value = {
