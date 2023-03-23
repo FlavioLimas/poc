@@ -5,6 +5,7 @@ import com.sicred.poc.exception.PocSicredErrors;
 import com.sicred.poc.external.dto.AgendaDTO;
 import com.sicred.poc.external.dto.AgendaSaveDTO;
 import com.sicred.poc.external.dto.AssociateDTO;
+import com.sicred.poc.external.dto.AssociateSaveDTO;
 import com.sicred.poc.model.AgendaEntity;
 import com.sicred.poc.model.AssociateEntity;
 import lombok.SneakyThrows;
@@ -35,10 +36,9 @@ public class AssociateMapper {
     }
 
     @SneakyThrows
-    public AgendaEntity toSave(AgendaSaveDTO agendaDTO) {
-        return AgendaEntity.builder()
-                .title(agendaDTO.getTitle())
-                .description(agendaDTO.getDescription())
+    public AssociateEntity toSave(AssociateSaveDTO associateSaveDTO) {
+        return AssociateEntity.builder()
+                .nome(associateSaveDTO.getNome())
                 .build();
     }
 

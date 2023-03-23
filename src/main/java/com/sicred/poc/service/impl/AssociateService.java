@@ -3,8 +3,8 @@ package com.sicred.poc.service.impl;
 import com.sicred.poc.exception.PocAssembleiaException;
 import com.sicred.poc.exception.PocSicredErrors;
 import com.sicred.poc.external.dto.AgendaDTO;
-import com.sicred.poc.external.dto.AgendaSaveDTO;
 import com.sicred.poc.external.dto.AssociateDTO;
+import com.sicred.poc.external.dto.AssociateSaveDTO;
 import com.sicred.poc.mapper.AssociateMapper;
 import com.sicred.poc.model.AgendaEntity;
 import com.sicred.poc.model.AssociateEntity;
@@ -53,17 +53,17 @@ public class AssociateService implements IAssociateService {
     @Override
     @SneakyThrows
     @Transactional
-    public ResponseEntity<AgendaDTO> save(AgendaSaveDTO agendaDTO) {
-        checkValue(agendaDTO.getTitle());
-        Optional<AgendaEntity> existsAgenda = repository.findByTitle(agendaDTO.getTitle());
-        if (existsAgenda.isEmpty()) {
-            AgendaEntity agendaEntity = mapper.toSave(agendaDTO);
-            log.info("Save Agenda value " + agendaEntity);
-            AgendaEntity agendaSaved = Optional.of(repository.save(agendaEntity))
-                    .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_SAVED));
-            return ResponseEntity.created(URI.create("/agenda/save")).body(mapper.from(agendaSaved));
+    public ResponseEntity<AssociateDTO> save(AssociateSaveDTO associateSaveDTO) {
+        checkValue(associateSaveDTO.getNome());
+        Optional<AssociateEntity> existsAssociate = repository.findByNome(associateSaveDTO.getNome());
+        if (existsAssociate.isEmpty()) {
+            AssociateEntity associate = mapper.toSave(associateSaveDTO);
+            log.info("Save Associate Name " + associate);
+            AssociateEntity associateSaved = Optional.of(repository.save(associate))
+                    .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.ASSOCIATE_NOT_SAVED));
+            return ResponseEntity.created(URI.create("/associate/save")).body(mapper.from(associateSaved));
         }
-        return ResponseEntity.ok(mapper.from(existsAgenda.get()));
+        return ResponseEntity.ok(mapper.from(existsAssociate.get()));
     }
 
     @Override
