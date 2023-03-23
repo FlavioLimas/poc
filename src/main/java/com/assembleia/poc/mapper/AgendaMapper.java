@@ -21,4 +21,12 @@ public class AgendaMapper {
         );
         return agendasDTO;
     }
+
+    public AgendaDTO from(AgendaEntity agenda) {
+        return AgendaDTO.builder()
+                .id(agenda.getId())
+                .title(agenda.getTitle())
+                .description(agenda.getDescription())
+                .build();
+    }
 }
