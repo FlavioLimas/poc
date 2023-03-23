@@ -68,7 +68,7 @@ public class AgendaController {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = AgendaDTO.class)))
     })
-    @PostMapping("/save")
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/save")
     public ResponseEntity<AgendaDTO> save(@RequestBody AgendaDTO agendaDTO) {
         return service.save(agendaDTO);
     }
