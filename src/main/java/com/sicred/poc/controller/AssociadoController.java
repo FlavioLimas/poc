@@ -1,7 +1,6 @@
 package com.sicred.poc.controller;
 
 import com.sicred.poc.external.dto.AgendaDTO;
-import com.sicred.poc.external.dto.AgendaSaveDTO;
 import com.sicred.poc.external.dto.AssociateDTO;
 import com.sicred.poc.external.dto.AssociateSaveDTO;
 import com.sicred.poc.service.impl.AssociateService;

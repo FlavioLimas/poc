@@ -2,11 +2,9 @@ package com.sicred.poc.service.impl;
 
 import com.sicred.poc.exception.PocAssembleiaException;
 import com.sicred.poc.exception.PocSicredErrors;
-import com.sicred.poc.external.dto.AgendaDTO;
 import com.sicred.poc.external.dto.AssociateDTO;
 import com.sicred.poc.external.dto.AssociateSaveDTO;
 import com.sicred.poc.mapper.AssociateMapper;
-import com.sicred.poc.model.AgendaEntity;
 import com.sicred.poc.model.AssociateEntity;
 import com.sicred.poc.repository.AssociateRepository;
 import com.sicred.poc.service.IAssociateService;
