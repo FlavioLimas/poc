@@ -1,5 +1,6 @@
 package com.sicred.poc.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,7 +10,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
 
 /**
  * Entidade para representar Pauta
@@ -25,7 +25,9 @@ public class AgendaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(nullable = false, unique = true)
     private String title;
+    @Column(nullable = false, unique = true)
     private String description;
 
 }
