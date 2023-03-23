@@ -77,8 +77,8 @@ public class AgendaService implements IAgendaService {
     }
 
     @Override
-    public void delete(AgendaDTO agendaDTO) {
-
+    public void deleteById(Long id) {
+        repository.deleteById(id);
     }
 
     @SneakyThrows

@@ -9,13 +9,8 @@ import java.util.List;
 public interface IAgendaService {
 
     List<AgendaDTO> getAll();
-
     AgendaDTO findByTitle(String title);
-
     ResponseEntity<AgendaDTO> save(AgendaSaveDTO agendaDTO);
-
     AgendaDTO update(AgendaDTO agendaDTO);
-
-    void delete(AgendaDTO agendaDTO);
-
+    void deleteById(Long id);
 }
