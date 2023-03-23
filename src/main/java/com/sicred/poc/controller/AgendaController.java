@@ -34,7 +34,7 @@ public class AgendaController {
     @Operation(summary = "Listagem de Pautas",
             description = "Listagem de registros",
             tags = {"Listagem de registros"})
-    @ApiResponse(responseCode = "200", description = "List operation")
+    @ApiResponse(responseCode = "200", description = "Listagem de registros")
     @ApiResponses(value = {
             @ApiResponse(content = {
                     @Content(mediaType = "application/json",
@@ -48,7 +48,7 @@ public class AgendaController {
     @Operation(summary = "Pesquisa por titulo de Pauta",
             description = "Pesquisa por titulo",
             tags = {"Pesquisa por nome"})
-    @ApiResponse(responseCode = "200", description = "Find By Name Operation")
+    @ApiResponse(responseCode = "200", description = "Pesquisa por titulo")
     @ApiResponses(value = {
             @ApiResponse(content = {
                     @Content(mediaType = "application/json",
@@ -63,10 +63,11 @@ public class AgendaController {
             description = "Criação de Pauta",
             tags = {"Criação de registro"})
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful operation",
+            @ApiResponse(responseCode = "200", description = "Retorna a Pauta se já houver o " +
+                    "Titulo informado cadastrado",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = AgendaDTO.class))),
-            @ApiResponse(responseCode = "201", description = "Created operation",
+            @ApiResponse(responseCode = "201", description = "Retorna a Pauta Salva",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = AgendaDTO.class)))
     })
