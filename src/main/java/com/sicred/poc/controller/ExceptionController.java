@@ -1,4 +1,4 @@
-package com.assembleia.poc.controller;
+package com.sicred.poc.controller;
 
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

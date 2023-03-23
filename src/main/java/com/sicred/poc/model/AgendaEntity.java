@@ -1,4 +1,4 @@
-package com.assembleia.poc.model;
+package com.sicred.poc.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.assembleia.poc.exception;
+package com.sicred.poc.exception;
 
 import lombok.Getter;
 
