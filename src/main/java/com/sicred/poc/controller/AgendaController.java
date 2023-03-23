@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,7 +43,7 @@ public class AgendaController {
         return ResponseEntity.ok(service.getAll());
     }
 
-    @Operation(summary = "Pesquisa por titulo de Pautas",
+    @Operation(summary = "Pesquisa por titulo de Pauta",
             description = "Pesquisa por titulo",
             tags = {"Pesquisa por nome"})
     @ApiResponse(responseCode = "200", description = "Find By Name Operation")
@@ -53,5 +55,21 @@ public class AgendaController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{title}")
     public ResponseEntity<AgendaDTO> findByTitle(@PathParam("title") String title) {
         return ResponseEntity.ok(service.findByTitle(title));
+    }
+
+    @Operation(summary = "Inclusão de Pauta",
+            description = "Criação de registro",
+            tags = {"Criação de registro"})
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful operation",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = AgendaDTO.class))),
+            @ApiResponse(responseCode = "201", description = "Created operation",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = AgendaDTO.class)))
+    })
+    @PostMapping("/save")
+    public ResponseEntity<AgendaDTO> save(@RequestBody AgendaDTO agendaDTO) {
+        return service.save(agendaDTO);
     }
 }
