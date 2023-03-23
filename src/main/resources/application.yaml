@@ -1,3 +1,7 @@
+spring.jpa.show-sql: true
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.H2Dialect
+spring.jpa.generate-ddl: true
+spring.jpa.hibernate.ddl-auto: update
 spring:
   application:
     name: Poc Sicred
@@ -7,9 +11,6 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     password:
-  jpa:
-  database-platform: org.hibernate.dialect.H2Dialect
-  generate-ddl: true
   h2:
   console:
     enabled: true
