@@ -11,10 +11,13 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -79,15 +82,30 @@ public class AgendaController {
     @Operation(summary = "Atualizão de Pauta",
             description = "Atualizão de Pauta",
             tags = {"Atualização"})
-    @ApiResponse(responseCode = "200", description = "Update Operation")
+    @ApiResponse(responseCode = "200", description = "Atualizão de Pauta")
     @ApiResponses(value = {
             @ApiResponse(content = {
                     @Content(mediaType = "application/json",
                             schema = @Schema(implementation = AgendaDTO.class))
             })})
-    @PutMapping("/update")
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/update")
     public ResponseEntity<AgendaDTO> update(@RequestBody AgendaDTO originDto) {
         return ResponseEntity.ok(service.update(originDto));
+    }
+
+    @Operation(summary = "Deleção de Pauta pelo Id",
+            description = "Deleção de Pauta pelo Id",
+            tags = {"Delete"})
+    @ApiResponse(responseCode = "200", description = "Deleção de Pauta pelo Id")
+    @ApiResponses(value = {
+            @ApiResponse(content = {
+                    @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Object.class))
+            })})
+    @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
+    public ResponseEntity<Object> deleteById(@PathVariable("id") Long id) {
+        service.deleteById(id);
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
 }
