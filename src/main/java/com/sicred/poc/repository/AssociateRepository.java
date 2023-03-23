@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface AssociateRepository extends JpaRepository<AssociateEntity, Long> {
 
-    Optional<AgendaEntity> findByNome(String title);
+    Optional<AssociateEntity> findByNome(String title);
 
 }
