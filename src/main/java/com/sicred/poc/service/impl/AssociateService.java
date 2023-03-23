@@ -45,7 +45,7 @@ public class AssociateService implements IAssociateService {
     public AssociateDTO findByName(String name) {
         checkValue(name);
         log.info("Find By Name Associate " + name);
-        AssociateEntity associate = repository.findByNome(name).orElseThrow(() ->
+        AssociateEntity associate = repository.findByName(name).orElseThrow(() ->
                 new PocAssembleiaException(PocSicredErrors.ASSOCIATE_NOT_FOUND));
         return mapper.from(associate);
     }
@@ -55,7 +55,7 @@ public class AssociateService implements IAssociateService {
     @Transactional
     public ResponseEntity<AssociateDTO> save(AssociateSaveDTO associateSaveDTO) {
         checkValue(associateSaveDTO.getNome());
-        Optional<AssociateEntity> existsAssociate = repository.findByNome(associateSaveDTO.getNome());
+        Optional<AssociateEntity> existsAssociate = repository.findByName(associateSaveDTO.getNome());
         if (existsAssociate.isEmpty()) {
             AssociateEntity associate = mapper.toSave(associateSaveDTO);
             log.info("Save Associate Name " + associate);
