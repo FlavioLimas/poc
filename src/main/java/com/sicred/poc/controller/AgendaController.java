@@ -107,5 +107,4 @@ public class AgendaController {
         service.deleteById(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
-
 }
