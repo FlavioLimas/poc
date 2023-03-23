@@ -3,6 +3,7 @@ package com.sicred.poc.service.impl;
 import com.sicred.poc.exception.PocAssembleiaException;
 import com.sicred.poc.exception.PocSicredErrors;
 import com.sicred.poc.external.dto.AgendaDTO;
+import com.sicred.poc.external.dto.AgendaSaveDTO;
 import com.sicred.poc.mapper.AgendaMapper;
 import com.sicred.poc.model.AgendaEntity;
 import com.sicred.poc.repository.AgendaRepository;
@@ -36,36 +37,49 @@ public class AgendaService implements IAgendaService {
         }
         return mapper.from(agendas);
     }
+
     @Override
     @SneakyThrows
     public AgendaDTO findByTitle(String title) {
         checkValue(title);
+        log.info("Find By Title Agenda " + title);
         AgendaEntity agenda = repository.findByTitle(title).orElseThrow(() ->
                 new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_FOUND));
         return mapper.from(agenda);
     }
+
     @Override
     @SneakyThrows
     @Transactional
-    public ResponseEntity<AgendaDTO> save(AgendaDTO agendaDTO) {
+    public ResponseEntity<AgendaDTO> save(AgendaSaveDTO agendaDTO) {
         checkValue(agendaDTO.getTitle());
         Optional<AgendaEntity> existsAgenda = repository.findByTitle(agendaDTO.getTitle());
         if (existsAgenda.isEmpty()) {
             AgendaEntity agendaEntity = mapper.toSave(agendaDTO);
+            log.info("Save Agenda value " + agendaEntity);
             AgendaEntity agendaSaved = Optional.of(repository.save(agendaEntity))
                     .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_SAVED));
             return ResponseEntity.created(URI.create("/agenda/save")).body(mapper.from(agendaSaved));
         }
         return ResponseEntity.ok(mapper.from(existsAgenda.get()));
     }
+
     @Override
+    @SneakyThrows
     public AgendaDTO update(AgendaDTO agendaDTO) {
-        return null;
+        AgendaEntity oldAgenda = repository.findById(agendaDTO.getId())
+                .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_FOUND));
+        log.info("Update Agenda new value " + agendaDTO + "old value " + oldAgenda);
+        AgendaEntity agendaEntity = Optional.of(repository.save(mapper.toUpdate(oldAgenda, agendaDTO)))
+                .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_UPDATED));
+        return mapper.from(agendaEntity);
     }
+
     @Override
     public void delete(AgendaDTO agendaDTO) {
 
     }
+
     @SneakyThrows
     private static void checkValue(String value) {
         if (value == null || value.trim().isEmpty()) {
@@ -73,4 +87,5 @@ public class AgendaService implements IAgendaService {
             throw new PocAssembleiaException(PocSicredErrors.VALUE_INVALID);
         }
     }
+
 }

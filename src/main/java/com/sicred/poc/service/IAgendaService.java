@@ -1,6 +1,7 @@
 package com.sicred.poc.service;
 
 import com.sicred.poc.external.dto.AgendaDTO;
+import com.sicred.poc.external.dto.AgendaSaveDTO;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public interface IAgendaService {
 
     AgendaDTO findByTitle(String title);
 
-    ResponseEntity<AgendaDTO> save(AgendaDTO agendaDTO);
+    ResponseEntity<AgendaDTO> save(AgendaSaveDTO agendaDTO);
 
     AgendaDTO update(AgendaDTO agendaDTO);
 

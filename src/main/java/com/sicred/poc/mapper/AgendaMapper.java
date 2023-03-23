@@ -3,6 +3,7 @@ package com.sicred.poc.mapper;
 import com.sicred.poc.exception.PocAssembleiaException;
 import com.sicred.poc.exception.PocSicredErrors;
 import com.sicred.poc.external.dto.AgendaDTO;
+import com.sicred.poc.external.dto.AgendaSaveDTO;
 import com.sicred.poc.model.AgendaEntity;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
@@ -34,13 +35,36 @@ public class AgendaMapper {
     }
 
     @SneakyThrows
-    public AgendaEntity toSave(AgendaDTO agendaDTO) {
-        if (null != agendaDTO.getId())
-            throw new PocAssembleiaException(PocSicredErrors.ID_MUST_BE_NULL_WHEN_SAVE);
+    public AgendaEntity toSave(AgendaSaveDTO agendaDTO) {
         return AgendaEntity.builder()
-                .id(agendaDTO.getId())
                 .title(agendaDTO.getTitle())
                 .description(agendaDTO.getDescription())
                 .build();
     }
+
+    @SneakyThrows
+    public AgendaEntity toUpdate(AgendaEntity oldAgenda, AgendaDTO newAgendaDTO) {
+        if (null == newAgendaDTO.getId())
+            throw new PocAssembleiaException(PocSicredErrors.ID_MUST_NOT_BE_NULL_WHEN_UPDATE);
+        return AgendaEntity.builder()
+                .title(isDifferent(newAgendaDTO.getTitle(), oldAgenda.getTitle()))
+                .description(isDifferent(newAgendaDTO.getDescription(), oldAgenda.getDescription()))
+                .build();
+    }
+
+    private static String isDifferent(String newValue, String oldValue) {
+        if (newValue != null && !newValue.equals(oldValue))
+            return isValid(newValue);
+        else
+            return isValid(oldValue);
+    }
+
+    @SneakyThrows
+    private static String isValid(String value) {
+        if (value.trim().isEmpty()) {
+            throw new PocAssembleiaException(PocSicredErrors.VALUE_INVALID);
+        }
+        return value;
+    }
+
 }
