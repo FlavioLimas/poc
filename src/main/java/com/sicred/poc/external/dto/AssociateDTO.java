@@ -15,6 +15,6 @@ import lombok.NoArgsConstructor;
 public class AssociateDTO {
 
     private Long id;
-    private String nome;
+    private String name;
 
 }

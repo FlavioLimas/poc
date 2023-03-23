@@ -42,7 +42,7 @@ public class AssociateService implements IAssociateService {
 
     @Override
     @SneakyThrows
-    public AssociateDTO findByNome(String name) {
+    public AssociateDTO findByName(String name) {
         checkValue(name);
         log.info("Find By Name Associate " + name);
         AssociateEntity associate = repository.findByNome(name).orElseThrow(() ->
@@ -68,14 +68,14 @@ public class AssociateService implements IAssociateService {
 
     @Override
     @SneakyThrows
-    public AgendaDTO update(AgendaDTO agendaDTO) {
-        AgendaEntity oldAgenda = repository.findById(agendaDTO.getId())
-                .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_FOUND));
-        log.info("Update Agenda new value " + agendaDTO + "old value " + oldAgenda);
-        AgendaEntity agendaEntity = mapper.toUpdate(oldAgenda, agendaDTO);
-        AgendaEntity agendaEntitySaved = Optional.of(repository.save(agendaEntity))
-                .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_UPDATED));
-        return mapper.from(agendaEntitySaved);
+    public AssociateDTO update(AssociateDTO associateDTO) {
+        AssociateEntity oldAssociate = repository.findById(associateDTO.getId())
+                .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.ASSOCIATE_NOT_FOUND));
+        log.info("Update Associate new value " + associateDTO + " old value " + oldAssociate);
+        AssociateEntity associate = mapper.toUpdate(oldAssociate, associateDTO);
+        AssociateEntity associateSaved = Optional.of(repository.save(associate))
+                .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.ASSOCIATE_NOT_UPDATED));
+        return mapper.from(associateSaved);
     }
 
     @Override

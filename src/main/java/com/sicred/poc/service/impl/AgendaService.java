@@ -69,7 +69,7 @@ public class AgendaService implements IAgendaService {
     public AgendaDTO update(AgendaDTO agendaDTO) {
         AgendaEntity oldAgenda = repository.findById(agendaDTO.getId())
                 .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_FOUND));
-        log.info("Update Agenda new value " + agendaDTO + "old value " + oldAgenda);
+        log.info("Update Agenda new value " + agendaDTO + " old value " + oldAgenda);
         AgendaEntity agendaEntity = mapper.toUpdate(oldAgenda, agendaDTO);
         AgendaEntity agendaEntitySaved = Optional.of(repository.save(agendaEntity))
                 .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_UPDATED));

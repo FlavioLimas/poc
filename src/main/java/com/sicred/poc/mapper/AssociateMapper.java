@@ -2,11 +2,8 @@ package com.sicred.poc.mapper;
 
 import com.sicred.poc.exception.PocAssembleiaException;
 import com.sicred.poc.exception.PocSicredErrors;
-import com.sicred.poc.external.dto.AgendaDTO;
-import com.sicred.poc.external.dto.AgendaSaveDTO;
 import com.sicred.poc.external.dto.AssociateDTO;
 import com.sicred.poc.external.dto.AssociateSaveDTO;
-import com.sicred.poc.model.AgendaEntity;
 import com.sicred.poc.model.AssociateEntity;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
@@ -22,7 +19,7 @@ public class AssociateMapper {
         associates.forEach(associate ->
                 associatesDTO.add(AssociateDTO.builder()
                         .id(associate.getId())
-                        .nome(associate.getNome())
+                        .name(associate.getName())
                         .build())
         );
         return associatesDTO;
@@ -31,25 +28,24 @@ public class AssociateMapper {
     public AssociateDTO from(AssociateEntity associate) {
         return AssociateDTO.builder()
                 .id(associate.getId())
-                .name(associate.getNome())
+                .name(associate.getName())
                 .build();
     }
 
     @SneakyThrows
     public AssociateEntity toSave(AssociateSaveDTO associateSaveDTO) {
         return AssociateEntity.builder()
-                .nome(associateSaveDTO.getNome())
+                .name(associateSaveDTO.getNome())
                 .build();
     }
 
     @SneakyThrows
-    public AgendaEntity toUpdate(AgendaEntity oldAgenda, AgendaDTO newAgendaDTO) {
-        if (null == newAgendaDTO.getId())
+    public AssociateEntity toUpdate(AssociateEntity oldAssociate, AssociateDTO newAssociate) {
+        if (null == newAssociate.getId())
             throw new PocAssembleiaException(PocSicredErrors.ID_MUST_NOT_BE_NULL_WHEN_UPDATE);
-        return AgendaEntity.builder()
-                .id(oldAgenda.getId())
-                .title(isDifferent(newAgendaDTO.getTitle(), oldAgenda.getTitle()))
-                .description(isDifferent(newAgendaDTO.getDescription(), oldAgenda.getDescription()))
+        return AssociateEntity.builder()
+                .id(oldAssociate.getId())
+                .name(isDifferent(newAssociate.getName(), oldAssociate.getName()))
                 .build();
     }
 
