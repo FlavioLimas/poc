@@ -19,4 +19,5 @@ Para referência adicional, considere as seguintes seções:
 ### Especificações Técnicas
 * [Health Check](http://localhost:8080/poc/v1/actuator)
 * [Health Check Custom](http://localhost:8080/poc/v1/actuator/health/custom)
+* [Documentação da API (Swagger)](http://localhost:8080/poc/v1/swagger-ui/index.html#/)
 * 
