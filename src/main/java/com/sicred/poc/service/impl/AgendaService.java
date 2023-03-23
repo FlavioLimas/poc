@@ -10,9 +10,13 @@ import com.sicred.poc.service.IAgendaService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -32,31 +36,41 @@ public class AgendaService implements IAgendaService {
         }
         return mapper.from(agendas);
     }
-
     @Override
     @SneakyThrows
     public AgendaDTO findByTitle(String title) {
-        if (title == null || title.trim().isEmpty()) {
-            log.error("Title " + title);
-            throw new PocAssembleiaException(PocSicredErrors.VALUE_INVALID);
-        }
+        checkValue(title);
         AgendaEntity agenda = repository.findByTitle(title).orElseThrow(() ->
                 new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_FOUND));
         return mapper.from(agenda);
     }
-
     @Override
-    public AgendaDTO save(AgendaDTO agendaDTO) {
-        return null;
+    @SneakyThrows
+    @Transactional
+    public ResponseEntity<AgendaDTO> save(AgendaDTO agendaDTO) {
+        checkValue(agendaDTO.getTitle());
+        Optional<AgendaEntity> existsAgenda = repository.findByTitle(agendaDTO.getTitle());
+        if (existsAgenda.isEmpty()) {
+            AgendaEntity agendaEntity = mapper.toSave(agendaDTO);
+            AgendaEntity agendaSaved = Optional.of(repository.save(agendaEntity))
+                    .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_SAVED));
+            return ResponseEntity.created(URI.create("/agenda/save")).body(mapper.from(agendaSaved));
+        }
+        return ResponseEntity.ok(mapper.from(existsAgenda.get()));
     }
-
     @Override
     public AgendaDTO update(AgendaDTO agendaDTO) {
         return null;
     }
-
     @Override
     public void delete(AgendaDTO agendaDTO) {
 
+    }
+    @SneakyThrows
+    private static void checkValue(String value) {
+        if (value == null || value.trim().isEmpty()) {
+            log.error("Value Invalid " + value);
+            throw new PocAssembleiaException(PocSicredErrors.VALUE_INVALID);
+        }
     }
 }
