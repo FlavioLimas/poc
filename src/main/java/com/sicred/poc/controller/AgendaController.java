@@ -24,7 +24,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class AgendaController {
 
-    private final AgendaService service;
+    private AgendaService service;
 
     @Operation(summary = "Listagem de Pautas",
             description = "Listagem de registros",
@@ -39,4 +39,6 @@ public class AgendaController {
     public ResponseEntity<List<AgendaDTO>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
+
+
 }
