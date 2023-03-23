@@ -1,12 +1,12 @@
-package com.sicred.poc.service.impl;
+package com.assembleia.poc.service.impl;
 
-import com.sicred.poc.exception.PocSicredErrors;
-import com.sicred.poc.exception.PocSicredException;
-import com.sicred.poc.external.dto.AgendaDTO;
-import com.sicred.poc.mapper.AgendaMapper;
-import com.sicred.poc.model.AgendaEntity;
-import com.sicred.poc.repository.AgendaRepository;
-import com.sicred.poc.service.IAgendaService;
+import com.assembleia.poc.exception.PocSicredErrors;
+import com.assembleia.poc.external.dto.AgendaDTO;
+import com.assembleia.poc.service.IAgendaService;
+import com.assembleia.poc.exception.PocSicredException;
+import com.assembleia.poc.mapper.AgendaMapper;
+import com.assembleia.poc.model.AgendaEntity;
+import com.assembleia.poc.repository.AgendaRepository;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

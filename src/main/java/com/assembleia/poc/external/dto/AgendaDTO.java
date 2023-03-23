@@ -1,4 +1,4 @@
-package com.sicred.poc.external.dto;
+package com.assembleia.poc.external.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

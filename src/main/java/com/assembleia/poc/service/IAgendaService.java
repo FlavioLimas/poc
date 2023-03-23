@@ -1,9 +1,8 @@
-package com.sicred.poc.service;
+package com.assembleia.poc.service;
 
-import com.sicred.poc.external.dto.AgendaDTO;
+import com.assembleia.poc.external.dto.AgendaDTO;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IAgendaService {
 

@@ -1,7 +1,7 @@
-package com.sicred.poc.mapper;
+package com.assembleia.poc.mapper;
 
-import com.sicred.poc.external.dto.AgendaDTO;
-import com.sicred.poc.model.AgendaEntity;
+import com.assembleia.poc.external.dto.AgendaDTO;
+import com.assembleia.poc.model.AgendaEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

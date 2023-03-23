@@ -1,7 +1,7 @@
-package com.sicred.poc.controller;
+package com.assembleia.poc.controller;
 
-import com.sicred.poc.external.dto.AgendaDTO;
-import com.sicred.poc.service.impl.AgendaService;
+import com.assembleia.poc.external.dto.AgendaDTO;
+import com.assembleia.poc.service.impl.AgendaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
