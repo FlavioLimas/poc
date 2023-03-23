@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -40,5 +41,17 @@ public class AgendaController {
         return ResponseEntity.ok(service.getAll());
     }
 
-
+    @Operation(summary = "Pesquisa por titulo de Pautas",
+            description = "Pesquisa por titulo",
+            tags = {"Pesquisa por nome"})
+    @ApiResponse(responseCode = "200", description = "Find By Name Operation")
+    @ApiResponses(value = {
+            @ApiResponse(content = {
+                    @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = AgendaDTO.class))
+            })})
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{title}")
+    public ResponseEntity<AgendaDTO> findByTitle(@PathParam("title") String title) {
+        return ResponseEntity.ok(service.findByName(title));
+    }
 }
