@@ -8,7 +8,7 @@ public interface IAgendaService {
 
     List<AgendaDTO> getAll();
 
-    AgendaDTO findByName(String title);
+    AgendaDTO findByTitle(String title);
 
     AgendaDTO save(AgendaDTO agendaDTO);
 

@@ -52,6 +52,6 @@ public class AgendaController {
             })})
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{title}")
     public ResponseEntity<AgendaDTO> findByTitle(@PathParam("title") String title) {
-        return ResponseEntity.ok(service.findByName(title));
+        return ResponseEntity.ok(service.findByTitle(title));
     }
 }
