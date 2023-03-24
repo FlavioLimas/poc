@@ -1,11 +1,12 @@
 package com.sicred.poc.service;
 
-import com.sicred.poc.model.VotingEntity;
-
-import java.util.Optional;
+import com.sicred.poc.external.dto.VotingDTO;
+import com.sicred.poc.external.dto.VotingSavedDTO;
 
 public interface IVotingService {
 
-    Optional<VotingEntity> findByVote(String name);
+    VotingDTO pollResult();
+
+    void voting(VotingSavedDTO votingSavedDTO);
 
 }
