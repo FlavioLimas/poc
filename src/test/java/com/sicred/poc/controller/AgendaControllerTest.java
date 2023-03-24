@@ -1,7 +1,9 @@
 package com.sicred.poc.controller;
 
 import com.sicred.poc.external.dto.AgendaDTO;
+import com.sicred.poc.external.dto.AgendaSaveDTO;
 import com.sicred.poc.service.impl.AgendaService;
+import com.sicred.poc.template.AgendaTemplate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -49,8 +51,8 @@ class AgendaControllerTest {
     @Test
     @DisplayName("Should Pass When Save CREATED")
     void testShouldPassWhenSaveCREATED() {
-
-        ResponseEntity<AgendaDTO> response = controller.save();
+        AgendaSaveDTO agendaSaveDTO = AgendaTemplate.valid();
+        ResponseEntity<AgendaDTO> response = controller.save(agendaSaveDTO);
         assertEquals(HttpStatus.CREATED, response.getStatusCode(),
                 "Assertion fail, response status invalid");
     }
