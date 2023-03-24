@@ -31,7 +31,7 @@ import java.util.List;
 @RequestMapping(path = "/associate")
 @AllArgsConstructor
 @CrossOrigin("*")
-public class AssociadoController {
+public class AssociateController {
 
     private AssociateService service;
 
