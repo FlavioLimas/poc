@@ -1,6 +1,6 @@
 package com.sicred.poc.model;
 
-import com.sicred.poc.model.id.VotingEntityId;
+import com.sicred.poc.model.id.VoteEntityId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,8 +25,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode
-@ToString@IdClass(VotingEntityId.class)
-public class VotingEntity {
+@ToString@IdClass(VoteEntityId.class)
+public class VoteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

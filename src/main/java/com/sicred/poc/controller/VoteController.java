@@ -3,7 +3,7 @@ package com.sicred.poc.controller;
 import com.sicred.poc.external.dto.AgendaDTO;
 import com.sicred.poc.external.dto.VotingDTO;
 import com.sicred.poc.external.dto.VotingSavedDTO;
-import com.sicred.poc.service.impl.VotingService;
+import com.sicred.poc.service.impl.VoteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -23,9 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/vote")
 @AllArgsConstructor
 @CrossOrigin("*")
-public class VotingController {
+public class VoteController {
 
-    private VotingService service;
+    private VoteService service;
 
     @Operation(summary = "Pesquisa de Resultado por Pauta",
             description = "Pesquisa de Resultado por Pauta",

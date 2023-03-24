@@ -7,7 +7,7 @@ import com.sicred.poc.external.dto.AssociateDTO;
 import com.sicred.poc.external.dto.VotingDTO;
 import com.sicred.poc.external.dto.VotingSavedDTO;
 import com.sicred.poc.model.AgendaEntity;
-import com.sicred.poc.model.VotingEntity;
+import com.sicred.poc.model.VoteEntity;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
@@ -21,8 +21,8 @@ public class VotingMapper {
     private AssociateMapper associateMapper;
     private AgendaMapper agendaMapper;
 
-    public VotingEntity to(AssociateDTO associateDTO, AgendaDTO agendaDTO, VotingSavedDTO votingSavedDTO) {
-        return VotingEntity.builder()
+    public VoteEntity to(AssociateDTO associateDTO, AgendaDTO agendaDTO, VotingSavedDTO votingSavedDTO) {
+        return VoteEntity.builder()
                 .associate(associateMapper.to(associateDTO))
                 .agenda(agendaMapper.to(agendaDTO))
                 .vote(checkVote(votingSavedDTO))
@@ -40,7 +40,7 @@ public class VotingMapper {
         }
     }
 
-    public VotingDTO from(List<VotingEntity> votesYes, List<VotingEntity> votesNo, AgendaEntity agenda) {
+    public VotingDTO from(List<VoteEntity> votesYes, List<VoteEntity> votesNo, AgendaEntity agenda) {
         return VotingDTO.builder()
                 .agendaDTO(agendaMapper.from(agenda))
                 .voteYes(String.valueOf(votesYes.size()))
