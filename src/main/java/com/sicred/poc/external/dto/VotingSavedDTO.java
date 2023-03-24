@@ -16,5 +16,6 @@ public class VotingSavedDTO {
 
     private AssociateSaveDTO associateSaveDTO;
     private AgendaSaveDTO agendaSaveDTO;
-    private Boolean vote;
+    private String vote;
+
 }
