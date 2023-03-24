@@ -66,6 +66,7 @@ public class AssociateService implements IAssociateService {
 
     @Override
     @SneakyThrows
+    @Transactional
     public AssociateDTO update(AssociateDTO associateDTO) {
         AssociateEntity oldAssociate = repository.findById(associateDTO.getId())
                 .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.ASSOCIATE_NOT_FOUND));
@@ -77,6 +78,7 @@ public class AssociateService implements IAssociateService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
         repository.deleteById(id);
     }

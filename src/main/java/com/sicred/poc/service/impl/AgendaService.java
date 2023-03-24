@@ -66,6 +66,7 @@ public class AgendaService implements IAgendaService {
 
     @Override
     @SneakyThrows
+    @Transactional
     public AgendaDTO update(AgendaDTO agendaDTO) {
         AgendaEntity oldAgenda = repository.findById(agendaDTO.getId())
                 .orElseThrow(() -> new PocAssembleiaException(PocSicredErrors.AGENDA_NOT_FOUND));
@@ -77,6 +78,7 @@ public class AgendaService implements IAgendaService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
