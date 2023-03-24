@@ -41,18 +41,16 @@ public class VoteController {
     }
 
     @Operation(summary = "Realizar Votação",
-            description = "Realizar Votação",
+            description = "Realizar Votação no atributo vote informar \"sim\"/\"nao\"",
             tags = {"Votação"})
-    @ApiResponse(responseCode = "200", description = "Realizar Votação")
     @ApiResponses(value = {
-            @ApiResponse(content = {
-                    @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Object.class))
-            })})
+            @ApiResponse(responseCode = "200", description = "Realizar Votação",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Object.class)))
+    })
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/voting")
-    public ResponseEntity<Object> voting(VotingSavedDTO votingSavedDTO) {
+    public ResponseEntity<Object> voting(@RequestBody VotingSavedDTO votingSavedDTO) {
         service.voting(votingSavedDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
-
 }
