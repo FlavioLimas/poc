@@ -19,6 +19,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.atMostOnce;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -70,6 +72,13 @@ class AgendaControllerTest {
                 "Assertion fail, response status invalid");
     }
 
-
+    @Test
+    @DisplayName("Should Pass When Delete OK")
+    void testShouldPassWhenDeleteOK() {
+        ResponseEntity<Object> response = controller.deleteById(1L);
+        verify(service, atMostOnce()).deleteById(1L);
+        assertEquals(HttpStatus.OK, response.getStatusCode(),
+                "Assertion fail, response status invalid");
+    }
 
 }
