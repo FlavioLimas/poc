@@ -42,7 +42,7 @@ public class VoteService implements IVoteService {
     @SneakyThrows
     @Transactional
     public void voting(VotingSavedDTO votingSavedDTO) {
-        AssociateDTO associateDTO = associateService.findByName(votingSavedDTO.getAssociateSaveDTO().getNome());
+        AssociateDTO associateDTO = associateService.findByName(votingSavedDTO.getAssociateSaveDTO().getName());
         AgendaDTO agendaDTO = agendaService.findByTitle(votingSavedDTO.getAgendaSaveDTO().getTitle());
         VotingEntity votingEntity = mapper.to(associateDTO, agendaDTO, votingSavedDTO);
         repository.save(votingEntity);

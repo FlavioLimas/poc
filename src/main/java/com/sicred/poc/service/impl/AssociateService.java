@@ -52,8 +52,8 @@ public class AssociateService implements IAssociateService {
     @SneakyThrows
     @Transactional
     public ResponseEntity<AssociateDTO> save(AssociateSaveDTO associateSaveDTO) {
-        checkValue(associateSaveDTO.getNome());
-        Optional<AssociateEntity> existsAssociate = repository.findByName(associateSaveDTO.getNome());
+        checkValue(associateSaveDTO.getName());
+        Optional<AssociateEntity> existsAssociate = repository.findByName(associateSaveDTO.getName());
         if (existsAssociate.isEmpty()) {
             AssociateEntity associate = mapper.toSave(associateSaveDTO);
             log.info("Save Associate Name " + associate);

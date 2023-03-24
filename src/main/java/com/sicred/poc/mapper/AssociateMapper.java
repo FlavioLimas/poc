@@ -42,7 +42,7 @@ public class AssociateMapper {
     @SneakyThrows
     public AssociateEntity toSave(AssociateSaveDTO associateSaveDTO) {
         return AssociateEntity.builder()
-                .name(associateSaveDTO.getNome())
+                .name(associateSaveDTO.getName())
                 .build();
     }
 

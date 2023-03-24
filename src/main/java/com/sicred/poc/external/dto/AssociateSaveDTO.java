@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class AssociateSaveDTO {
 
-    private String nome;
+    private String name;
 
 }
