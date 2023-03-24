@@ -47,5 +47,4 @@ public class VotingService implements IVotingService {
         VotingEntity votingEntity = mapper.to(associateDTO, agendaDTO, votingSavedDTO);
         repository.save(votingEntity);
     }
-
 }
