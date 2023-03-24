@@ -1,13 +1,9 @@
 package com.sicred.poc.controller;
 
-import com.sicred.poc.external.dto.AssociateDTO;
-import com.sicred.poc.external.dto.AssociateSaveDTO;
 import com.sicred.poc.external.dto.VotingDTO;
 import com.sicred.poc.external.dto.VotingSavedDTO;
-import com.sicred.poc.service.impl.AssociateService;
 import com.sicred.poc.service.impl.VoteService;
 import com.sicred.poc.template.AgendaTemplate;
-import com.sicred.poc.template.AssociateTemplate;
 import com.sicred.poc.template.VotingTemplate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -19,14 +15,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.net.URI;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.atMostOnce;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class VoteControllerTest {
@@ -58,4 +49,5 @@ class VoteControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode(),
                 "Assertion fail, response status invalid");
     }
+
 }

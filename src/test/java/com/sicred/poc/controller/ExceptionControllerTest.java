@@ -1,6 +1,5 @@
 package com.sicred.poc.controller;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -10,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.context.request.WebRequest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class ExceptionControllerTest {
@@ -26,7 +25,7 @@ class ExceptionControllerTest {
     @DisplayName("Should Pass When ResponseEntity With Error")
     void testShouldPassWhenResponseEntityWithError() {
         ResponseEntity<Object> response = controller.exceptionHandler(runtimeException, webRequest);
-        Assertions.assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode(),
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode(),
                 "Assertion fail, request status invalid");
     }
 
