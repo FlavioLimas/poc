@@ -14,6 +14,14 @@ import java.util.List;
 @Component
 public class AgendaMapper {
 
+    public AgendaEntity to(AgendaDTO agendaDTO) {
+        return AgendaEntity.builder()
+                .id(agendaDTO.getId())
+                .title(agendaDTO.getTitle())
+                .description(agendaDTO.getDescription())
+                .build();
+    }
+
     public List<AgendaDTO> from(List<AgendaEntity> agendas) {
         List<AgendaDTO> agendasDTO = new ArrayList<>();
         agendas.forEach(agenda ->
@@ -67,5 +75,4 @@ public class AgendaMapper {
         }
         return value;
     }
-
 }

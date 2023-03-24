@@ -14,6 +14,13 @@ import java.util.List;
 @Component
 public class AssociateMapper {
 
+    public AssociateEntity to(AssociateDTO associateDTO) {
+        return AssociateEntity.builder()
+                .id(associateDTO.getId())
+                .name(associateDTO.getName())
+                .build();
+    }
+
     public List<AssociateDTO> from(List<AssociateEntity> associates) {
         List<AssociateDTO> associatesDTO = new ArrayList<>();
         associates.forEach(associate ->
@@ -63,5 +70,4 @@ public class AssociateMapper {
         }
         return value;
     }
-
 }
