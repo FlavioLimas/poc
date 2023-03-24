@@ -11,7 +11,8 @@ public enum PocSicredErrors {
     VALUE_INVALID("Value Invalid"),
     AGENDA_NOT_SAVED("Agenda Not Saved"),
     AGENDA_NOT_UPDATED("Agenda Not Updated"),
-    ID_MUST_NOT_BE_NULL_WHEN_UPDATE("Id Must Not Be Null When Update");
+    ID_MUST_NOT_BE_NULL_WHEN_UPDATE("Id Must Not Be Null When Update"),
+    VOTE_INVALID("Vote Invalid");
 
     @Getter
     private String message;
