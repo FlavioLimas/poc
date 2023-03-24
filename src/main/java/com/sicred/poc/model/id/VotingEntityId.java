@@ -5,7 +5,7 @@ import com.sicred.poc.model.AssociateEntity;
 import lombok.Data;
 
 @Data
-public class VoteEntityId {
+public class VotingEntityId {
 
     private static final long serialVersionUID = 4881132725296851667L;
 

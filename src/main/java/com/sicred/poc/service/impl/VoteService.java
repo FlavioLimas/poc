@@ -7,7 +7,7 @@ import com.sicred.poc.external.dto.VotingSavedDTO;
 import com.sicred.poc.mapper.AgendaMapper;
 import com.sicred.poc.mapper.VotingMapper;
 import com.sicred.poc.model.AgendaEntity;
-import com.sicred.poc.model.VoteEntity;
+import com.sicred.poc.model.VotingEntity;
 import com.sicred.poc.repository.VoteRepository;
 import com.sicred.poc.service.IVoteService;
 import lombok.AllArgsConstructor;
@@ -33,8 +33,8 @@ public class VoteService implements IVoteService {
     @SneakyThrows
     public VotingDTO pollResult(AgendaDTO agendaDTO) {
         AgendaEntity agenda = agendaMapper.to(agendaService.findByTitle(agendaDTO.getTitle()));
-        List<VoteEntity> votesYes = repository.findByAgendaAndVote(agenda, "sim");
-        List<VoteEntity> votesNo = repository.findByAgendaAndVote(agenda, "nao");
+        List<VotingEntity> votesYes = repository.findByAgendaAndVote(agenda, "sim");
+        List<VotingEntity> votesNo = repository.findByAgendaAndVote(agenda, "nao");
         return mapper.from(votesYes, votesNo, agenda);
     }
 
@@ -44,7 +44,7 @@ public class VoteService implements IVoteService {
     public void voting(VotingSavedDTO votingSavedDTO) {
         AssociateDTO associateDTO = associateService.findByName(votingSavedDTO.getAssociateSaveDTO().getNome());
         AgendaDTO agendaDTO = agendaService.findByTitle(votingSavedDTO.getAgendaSaveDTO().getTitle());
-        VoteEntity voteEntity = mapper.to(associateDTO, agendaDTO, votingSavedDTO);
-        repository.save(voteEntity);
+        VotingEntity votingEntity = mapper.to(associateDTO, agendaDTO, votingSavedDTO);
+        repository.save(votingEntity);
     }
 }
