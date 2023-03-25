@@ -105,5 +105,4 @@ class AgendaMapperTest {
         assertEquals(agendaOldMock.getDescription(), agendaEntity.getDescription(),
                 "Assertion fail, value invalid");
     }
-
 }
