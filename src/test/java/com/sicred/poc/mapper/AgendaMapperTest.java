@@ -84,11 +84,25 @@ class AgendaMapperTest {
         agendaNewMock.setTitle("test update");
         agendaNewMock.setDescription("test update");
         AgendaEntity agendaEntity = mapper.toUpdate(agendaOldMock, agendaNewMock);
-        assertEquals(agendaOldMock.getId(), agendaNewMock.getId(),
+        assertEquals(agendaOldMock.getId(), agendaEntity.getId(),
                 "Assertion fail, value invalid");
-        assertNotEquals(agendaOldMock.getTitle(), agendaNewMock.getTitle(),
+        assertNotEquals(agendaOldMock.getTitle(), agendaEntity.getTitle(),
                 "Assertion fail, value invalid");
-        assertNotEquals(agendaOldMock.getDescription(), agendaNewMock.getDescription(),
+        assertNotEquals(agendaOldMock.getDescription(), agendaEntity.getDescription(),
+                "Assertion fail, value invalid");
+    }
+
+    @Test
+    @DisplayName("Should Pass When ToUpdate Object Equals")
+    void testShouldPassWhenToUpdateThrowIdIsNull() {
+        AgendaEntity agendaOldMock = AgendaTemplate.validAgendaEntity();
+        AgendaDTO agendaNewMock = AgendaTemplate.validAgendaDTO();
+        AgendaEntity agendaEntity = mapper.toUpdate(agendaOldMock, agendaNewMock);
+        assertEquals(agendaOldMock.getId(), agendaEntity.getId(),
+                "Assertion fail, value invalid");
+        assertEquals(agendaOldMock.getTitle(), agendaEntity.getTitle(),
+                "Assertion fail, value invalid");
+        assertEquals(agendaOldMock.getDescription(), agendaEntity.getDescription(),
                 "Assertion fail, value invalid");
     }
 
