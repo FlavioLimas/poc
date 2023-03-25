@@ -52,8 +52,6 @@ public class AgendaMapper {
 
     @SneakyThrows
     public AgendaEntity toUpdate(AgendaEntity oldAgenda, AgendaDTO newAgendaDTO) {
-        if (null == newAgendaDTO.getId())
-            throw new PocAssembleiaException(PocSicredErrors.ID_MUST_NOT_BE_NULL_WHEN_UPDATE);
         return AgendaEntity.builder()
                 .id(oldAgenda.getId())
                 .title(isDifferent(newAgendaDTO.getTitle(), oldAgenda.getTitle()))
