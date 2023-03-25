@@ -119,6 +119,8 @@
 						<exclude>IAgendaService.java</exclude>
 						<exclude>IAssociateService.java</exclude>
 						<exclude>IVoteService.java</exclude>
+						<exclude>src/main/java/com/sicred/poc/model/**</exclude>
+						<exclude>src/main/java/com/sicred/poc/external/dto/**</exclude>
 					</excludes>
 					<rules>
 						<rule>
