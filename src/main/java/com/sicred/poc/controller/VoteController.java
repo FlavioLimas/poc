@@ -27,11 +27,11 @@ public class VoteController {
 
     private VoteService service;
 
-    @Operation(summary = "Pesquisa de Resultado por Pauta",
-            description = "Pesquisa de Resultado por Pauta",
+    @Operation(summary = "Pesquisa de resultado da votação por Pauta",
+            description = "Pesquisa de resultado da votação por Pauta",
             tags = {"Votação"})
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Pesquisa de Resultado por Pauta",
+            @ApiResponse(responseCode = "200", description = "Pesquisa de resultado da votação por Pauta",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = VotingDTO.class)))
     })

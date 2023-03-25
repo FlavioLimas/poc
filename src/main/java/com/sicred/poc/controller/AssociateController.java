@@ -83,7 +83,8 @@ public class AssociateController {
     @Operation(summary = "Atualizão de Assoaciado",
             description = "Atualizão de Assoaciado",
             tags = {"Atualização"})
-    @ApiResponse(responseCode = "200", description = "Atualizão de Assoaciado")
+    @ApiResponse(responseCode = "200", description = "Atualizão de Assoaciado será efetivada somente se " +
+            "ID informado for válido")
     @ApiResponses(value = {
             @ApiResponse(content = {
                     @Content(mediaType = "application/json",
