@@ -1,5 +1,6 @@
 package com.sicred.poc.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,9 +11,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-
 /**
- * Entidade para representar Pauta
+ * Entidade para representar Associado
  */
 @Entity
 @Data
@@ -20,11 +20,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode
-public class Agenda {
+public class AssociateEntity {
+
+    private static final long serialVersionUID = -2899467848569731944L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String descriptionAgenda;
+    @Column(nullable = false)
+    private String name;
 
 }
