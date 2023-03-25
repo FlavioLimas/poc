@@ -23,7 +23,7 @@ não infrinja direitos de uso).
 ## Executando aplicação
 Evidencia de execulção
 
-![Evidencia de execução:](app-exec.png)
+![Evidencia de execução:](src/main/resources/data/img/app-exec.png)
 
 ### Health
 * [Health Check](http://localhost:8080/poc/v1/actuator)
@@ -32,19 +32,19 @@ Evidencia de execulção
 
 [Documentação da API (Swagger)](http://localhost:8080/poc/v1/swagger-ui/index.html#/)
 
-![Evidencia de execução:](home-swagger.png)
-![Evidencia de execução:](evidencia-votacao.png)
-![Evidencia de execução:](evidencia-app-execucao.png)
+![Evidencia de execução:](src/main/resources/data/img/home-swagger.png)
+![Evidencia de execução:](src/main/resources/data/img/evidencia-votacao.png)
+![Evidencia de execução:](src/main/resources/data/img/evidencia-app-execucao.png)
 
 Possível o acesso ao console H2
 
 [Login H2 Console Data Base](http://localhost:8080/poc/v1/h2-console/)
 
-![Evidencia de execução:](login-database-h2.png)
-![Evidencia de execução:](database-h2-conected.png)
+![Evidencia de execução:](src/main/resources/data/img/login-database-h2.png)
+![Evidencia de execução:](src/main/resources/data/img/database-h2-conected.png)
 Evidencia dos registros da votação realizada:
 
-![Evidencia de execução:](result-query-voting.png)
+![Evidencia de execução:](src/main/resources/data/img/result-query-voting.png)
 
 ## TESTES
 
@@ -62,10 +62,10 @@ Execute a linha de comando para gerar relátório do jacoco:
 mvn clean install
 ```
 Evidencias:
-![Evidencia de execução:](exec-mvn-install.png)
-![Evidencia de execução:](report-open-in-browser.png)
-![Evidencia de execução:](report-jacoco-index.png)
-![Evidencia de execução:](report-covarege.png)
+![Evidencia de execução:](src/main/resources/data/img/exec-mvn-install.png)
+![Evidencia de execução:](src/main/resources/data/img/report-open-in-browser.png)
+![Evidencia de execução:](src/main/resources/data/img/report-jacoco-index.png)
+![Evidencia de execução:](src/main/resources/data/img/report-covarege.png)
 
 ### Documentação de referência
 Para referência adicional, considere as seguintes seções:
