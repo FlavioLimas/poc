@@ -33,6 +33,7 @@ public class VoteService implements IVoteService {
     @SneakyThrows
     public VotingDTO pollResult(AgendaDTO agendaDTO) {
         AgendaEntity agenda = agendaMapper.to(agendaService.findByTitle(agendaDTO.getTitle()));
+        log.info("Agenda " + agenda);
         List<VotingEntity> votesYes = repository.findByAgendaAndVote(agenda, "sim");
         List<VotingEntity> votesNo = repository.findByAgendaAndVote(agenda, "nao");
         return mapper.from(votesYes, votesNo, agenda);
@@ -45,6 +46,7 @@ public class VoteService implements IVoteService {
         AssociateDTO associateDTO = associateService.findByName(votingSavedDTO.getAssociateSaveDTO().getName());
         AgendaDTO agendaDTO = agendaService.findByTitle(votingSavedDTO.getAgendaSaveDTO().getTitle());
         VotingEntity votingEntity = mapper.to(associateDTO, agendaDTO, votingSavedDTO);
+        log.info("Voting " + votingEntity);
         repository.save(votingEntity);
     }
 }
