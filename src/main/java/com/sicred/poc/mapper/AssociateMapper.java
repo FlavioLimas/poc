@@ -48,8 +48,6 @@ public class AssociateMapper {
 
     @SneakyThrows
     public AssociateEntity toUpdate(AssociateEntity oldAssociate, AssociateDTO newAssociate) {
-        if (null == newAssociate.getId())
-            throw new PocAssembleiaException(PocSicredErrors.ID_MUST_NOT_BE_NULL_WHEN_UPDATE);
         return AssociateEntity.builder()
                 .id(oldAssociate.getId())
                 .name(isDifferent(newAssociate.getName(), oldAssociate.getName()))
