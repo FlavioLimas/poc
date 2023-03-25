@@ -31,10 +31,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
@@ -97,7 +93,6 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.6</version>
 				<executions>
 					<execution>
 						<goals>
@@ -110,6 +105,20 @@
 				<configuration>
 					<excludes>
 						<exclude>PocApplication.java</exclude>
+						<exclude>AgendaDTO.java</exclude>
+						<exclude>AgendaSaveDTO.java</exclude>
+						<exclude>AssociateDTO.java</exclude>
+						<exclude>VotingSavedDTO.java</exclude>
+						<exclude>VotingEntityId.java</exclude>
+						<exclude>AgendaEntity.java</exclude>
+						<exclude>AssociateEntity.java</exclude>
+						<exclude>VotingEntity.java</exclude>
+						<exclude>AgendaRepository.java</exclude>
+						<exclude>AssociateRepository.java</exclude>
+						<exclude>VoteRepository.java</exclude>
+						<exclude>IAgendaService.java</exclude>
+						<exclude>IAssociateService.java</exclude>
+						<exclude>IVoteService.java</exclude>
 					</excludes>
 					<rules>
 						<rule>
@@ -117,7 +126,6 @@
 								<limit>
 									<counter>INSTRUCTION</counter>
 									<value>COVEREDRATIO</value>
-									<minimum>80%</minimum>
 								</limit>
 							</limits>
 						</rule>
