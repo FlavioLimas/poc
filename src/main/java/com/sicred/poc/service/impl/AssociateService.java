@@ -79,6 +79,7 @@ public class AssociateService implements IAssociateService {
 
     @Override
     @Transactional
+    @SneakyThrows
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
