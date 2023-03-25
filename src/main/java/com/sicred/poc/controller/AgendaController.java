@@ -63,7 +63,7 @@ public class AgendaController {
     }
 
     @Operation(summary = "Inclusão de Pauta",
-            description = "Criação de Pauta",
+            description = "Inclusão de Pauta",
             tags = {"Criação de registro"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Retorna a Pauta se já houver o " +
@@ -82,7 +82,8 @@ public class AgendaController {
     @Operation(summary = "Atualizão de Pauta",
             description = "Atualizão de Pauta",
             tags = {"Atualização"})
-    @ApiResponse(responseCode = "200", description = "Atualizão de Pauta")
+    @ApiResponse(responseCode = "200", description = "Atualizão de Pauta será efetivada somente se " +
+            "ID informado for válido")
     @ApiResponses(value = {
             @ApiResponse(content = {
                     @Content(mediaType = "application/json",
@@ -93,8 +94,8 @@ public class AgendaController {
         return ResponseEntity.ok(service.update(originDto));
     }
 
-    @Operation(summary = "Deleção de Pauta pelo Id",
-            description = "Deleção de Pauta pelo Id",
+    @Operation(summary = "Delete Pauta pelo Id",
+            description = "Delete Pauta pelo Id",
             tags = {"Delete"})
     @ApiResponse(responseCode = "200", description = "Deleção de Pauta pelo Id")
     @ApiResponses(value = {
