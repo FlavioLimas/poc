@@ -13,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class AgendaMapperTest {
 
@@ -76,7 +77,19 @@ class AgendaMapperTest {
     }
 
     @Test
-    void toUpdate() {
+    @DisplayName("Should Pass When ToUpdate AgendaEntity Is Valid")
+    void testShouldPassWhenToUpdateAgendaEntityIsValid() {
+        AgendaEntity agendaOldMock = AgendaTemplate.validAgendaEntity();
+        AgendaDTO agendaNewMock = AgendaTemplate.validAgendaDTO();
+        agendaNewMock.setTitle("test update");
+        agendaNewMock.setDescription("test update");
+        AgendaEntity agendaEntity = mapper.toUpdate(agendaOldMock, agendaNewMock);
+        assertEquals(agendaOldMock.getId(), agendaNewMock.getId(),
+                "Assertion fail, value invalid");
+        assertNotEquals(agendaOldMock.getTitle(), agendaNewMock.getTitle(),
+                "Assertion fail, value invalid");
+        assertNotEquals(agendaOldMock.getDescription(), agendaNewMock.getDescription(),
+                "Assertion fail, value invalid");
     }
 
 }
