@@ -79,6 +79,7 @@ public class AgendaService implements IAgendaService {
 
     @Override
     @Transactional
+    @SneakyThrows
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
