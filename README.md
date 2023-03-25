@@ -20,11 +20,31 @@ não infrinja direitos de uso).
 
 É importante que as pautas e os votos sejam persistidos e que não sejam perdidos com o restart da aplicação.
 
+## Executando aplicação
+Evidencia de execulção
 
-### Especificações Técnicas
+![Evidencia de execução:](app-exec.png)
+
+### Health
 * [Health Check](http://localhost:8080/poc/v1/actuator)
 * [Health Check Custom](http://localhost:8080/poc/v1/actuator/health/custom)
-* [Documentação da API (Swagger)](http://localhost:8080/poc/v1/swagger-ui/index.html#/)
+
+
+[Documentação da API (Swagger)](http://localhost:8080/poc/v1/swagger-ui/index.html#/)
+
+![Evidencia de execução:](home-swagger.png)
+![Evidencia de execução:](evidencia-votacao.png)
+![Evidencia de execução:](evidencia-app-execucao.png)
+
+Possível o acesso ao console H2
+
+[Login H2 Console Data Base](http://localhost:8080/poc/v1/h2-console/)
+
+![Evidencia de execução:](login-database-h2.png)
+![Evidencia de execução:](database-h2-conected.png)
+Evidencia dos registros da votação realizada:
+
+![Evidencia de execução:](result-query-voting.png)
 
 ## TESTES
 
