@@ -2,7 +2,7 @@ package com.sicred.poc.controller;
 
 import com.sicred.poc.external.dto.AgendaDTO;
 import com.sicred.poc.external.dto.AgendaSaveDTO;
-import com.sicred.poc.service.impl.AgendaService;
+import com.sicred.poc.service.IAgendaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -32,7 +32,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class AgendaController {
 
-    private AgendaService service;
+    private IAgendaService service;
 
     @Operation(summary = "Listagem de Pautas",
             description = "Listagem de registros",
@@ -108,4 +108,5 @@ public class AgendaController {
         service.deleteById(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
+
 }
