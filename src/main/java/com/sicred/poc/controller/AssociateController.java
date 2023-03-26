@@ -3,7 +3,7 @@ package com.sicred.poc.controller;
 import com.sicred.poc.external.dto.AgendaDTO;
 import com.sicred.poc.external.dto.AssociateDTO;
 import com.sicred.poc.external.dto.AssociateSaveDTO;
-import com.sicred.poc.service.impl.AssociateService;
+import com.sicred.poc.service.IAssociateService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -33,7 +33,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class AssociateController {
 
-    private AssociateService service;
+    private IAssociateService service;
 
     @Operation(summary = "Listagem de Assoaciados",
             description = "Listagem de registros",

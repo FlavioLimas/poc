@@ -3,7 +3,7 @@ package com.sicred.poc.controller;
 import com.sicred.poc.external.dto.AgendaDTO;
 import com.sicred.poc.external.dto.VotingDTO;
 import com.sicred.poc.external.dto.VotingSavedDTO;
-import com.sicred.poc.service.impl.VoteService;
+import com.sicred.poc.service.IVoteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 public class VoteController {
 
-    private VoteService service;
+    private IVoteService service;
 
     @Operation(summary = "Pesquisa de resultado da votação por Pauta",
             description = "Pesquisa de resultado da votação por Pauta",
@@ -53,4 +53,5 @@ public class VoteController {
         service.voting(votingSavedDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
+
 }
